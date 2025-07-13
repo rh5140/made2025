@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.Events;
 using Vector2 = UnityEngine.Vector2;
 
 public class ProtagCore : MonoBehaviour
@@ -12,8 +13,6 @@ public class ProtagCore : MonoBehaviour
     public float rollCooldown = 1.0f;
     public float rollDuration = 2.0f;
     public float rollMovementMultiplier = 5.0f;
-
-    public float aimDuration = 1.0f;
 
     // Unit vector representing direction player is facing.
     public Vector2 direction = Vector2.up;
@@ -27,7 +26,6 @@ public class ProtagCore : MonoBehaviour
     public float movementMultiplier = 5.0f;
 
     private float rollPrevTime;
-    private float aimPrevTime;
     private bool hasProjectile;
 
     [SerializeField]
@@ -37,6 +35,8 @@ public class ProtagCore : MonoBehaviour
 
     public PlayerState playerState;
     public Rigidbody2D playerRigidBody2d;
+
+    public UnityEvent onRevive;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,7 +56,8 @@ public class ProtagCore : MonoBehaviour
 
     private void HandleState()
     {
-        if (playerState == PlayerState.MOVE) {
+        if (playerState == PlayerState.MOVE)
+        {
             protagMovement.HandleMovement();
             return;
         }
@@ -90,7 +91,6 @@ public class ProtagCore : MonoBehaviour
         if (playerState == PlayerState.MOVE && hasProjectile && Input.GetKeyDown(aimKeys[playerID - 1]))
         {
             playerState = PlayerState.AIM;
-            aimDuration = Time.time;
             return;
         }
 
@@ -100,7 +100,7 @@ public class ProtagCore : MonoBehaviour
             hasProjectile = false;
             protagShoot.HandleShoot();
             playerState = PlayerState.MOVE;
-            
+
             return;
         }
     }
@@ -124,5 +124,10 @@ public class ProtagCore : MonoBehaviour
     public void Die()
     {
         playerState = PlayerState.DEAD;
+    }
+
+    public void Revive()
+    {
+        playerState = PlayerState.MOVE;
     }
 }
