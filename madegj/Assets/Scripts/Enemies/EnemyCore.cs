@@ -1,6 +1,7 @@
 using Enemies.BulletPatterns;
 using Enemies.Movement;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Enemies
 {
@@ -18,9 +19,12 @@ namespace Enemies
         [SerializeField]
         private ProtagCore player2;
 
+        public UnityEvent OnDefeated;
+        public UnityEvent OnRemoveCorpse;
+
         private void Update()
         {
-            if (enemyMovement == null || enemyBulletPattern == null)
+            if (enemyMovement == null || enemyBulletPattern == null || player1 == null || player2 == null)
             {
                 return;
             }
@@ -36,6 +40,17 @@ namespace Enemies
         {
             this.player1 = player1;
             this.player2 = player2;
+        }
+
+        public void CleanupCorpse()
+        {
+            OnRemoveCorpse?.Invoke();
+            Destroy(gameObject, 2f);
+        }
+
+        public void Defeat()
+        {
+            OnDefeated?.Invoke();
         }
     }
 }
