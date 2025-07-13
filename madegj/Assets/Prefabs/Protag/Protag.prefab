@@ -44,8 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1265b6c37af3f40e0aff767d56648d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:madegj/Assets/Prefabs/Protag/Protag.prefab
   protagCore: {fileID: 1843779742842668390}
   playerRigidBody2D: {fileID: 1693225842999674208}
+=======
+  movementMultiplier: 5
+  playerRigidBody2D: {fileID: 0}
+>>>>>>> 8b9178194c66aa53f8360d5f61da6b9b89cc156c:madegj/Assets/Prefabs/Player.prefab
 --- !u!1 &8456100898937429448
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,8 +174,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1199172411
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -222,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b4442c4c5d9b3fdab1141e5e083182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:madegj/Assets/Prefabs/Protag/Protag.prefab
   playerID: 1
   rollCooldown: 4
   rollDuration: 0.25
@@ -232,3 +238,10 @@ MonoBehaviour:
   movementMultiplier: 5
   protagMovement: {fileID: 2964486600232902471}
   playerRigidBody2d: {fileID: 1693225842999674208}
+=======
+  playerID: 0
+  rollCooldown: 1
+  rollDuration: 2
+  protagMovement: {fileID: 0}
+  playerRigidBody2d: {fileID: 0}
+>>>>>>> 8b9178194c66aa53f8360d5f61da6b9b89cc156c:madegj/Assets/Prefabs/Player.prefab
