@@ -82,6 +82,8 @@ namespace Projectiles
                 return;
             }
 
+            impactOccurred = true;
+
             OnCollide?.Invoke();
             if (destroyOnImpact)
             {
