@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Projectiles
 {
@@ -7,11 +9,16 @@ namespace Projectiles
         [SerializeField]
         private LayerMask pickupMask;
 
+        [SerializeField]
+        private UnityEvent onPickup;
+
         private bool canPickup;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private bool pickedUp;
+
+        private void OnTriggerStay2D(Collider2D other)
         {
-            if (!canPickup)
+            if (!canPickup || pickedUp)
             {
                 return;
             }
@@ -21,8 +28,10 @@ namespace Projectiles
                 var protag = other.GetComponentInParent<ProtagCore>();
                 if (protag != null)
                 {
+                    pickedUp = true;
                     Debug.Log("Picked up! " + protag.name);
                     protag.PickupProjectile();
+                    onPickup?.Invoke();
 
                     Destroy(gameObject);
                 }
@@ -31,7 +40,18 @@ namespace Projectiles
 
         public void SetCanPickup(bool enablePickup)
         {
-            canPickup = enablePickup;
+            if (canPickup == enablePickup)
+            {
+                return;
+            }
+
+            StartCoroutine(SetPickup(true, 0.25f));
+        }
+
+        private IEnumerator SetPickup(bool value, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            canPickup = value;
         }
     }
 }

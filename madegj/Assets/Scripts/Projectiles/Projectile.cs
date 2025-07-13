@@ -6,6 +6,12 @@ namespace Projectiles
 {
     public class Projectile : MonoBehaviour
     {
+        private enum ProjectileState
+        {
+            Flying,
+            Impacted
+        }
+
         [SerializeField]
         private Rigidbody2D rigidbody2D;
 
@@ -30,6 +36,9 @@ namespace Projectiles
         [SerializeField]
         private float knockbackForce;
 
+        [SerializeField]
+        private bool stickToTarget;
+
         [FormerlySerializedAs("OnCollide")]
         public UnityEvent OnImpact;
 
@@ -38,7 +47,10 @@ namespace Projectiles
         private Vector2 direction;
         private float lifeTimer;
 
-        private bool impactOccurred;
+        private ProjectileState state = ProjectileState.Flying;
+
+        private Vector2 relativePosition;
+        private Transform impaledTarget;
 
         private void FixedUpdate()
         {
@@ -47,18 +59,28 @@ namespace Projectiles
                 return;
             }
 
-            // Accelerate the projectile
-            Vector2 currentVelocity = rigidbody2D.linearVelocity;
-            Vector2 newVelocity = Vector2.MoveTowards(currentVelocity,
-                direction * initialSpeed,
-                acceleration * Time.fixedDeltaTime);
-
-            rigidbody2D.linearVelocity = newVelocity;
-
-            lifeTimer -= Time.fixedDeltaTime;
-            if (lifeTimer <= 0f)
+            if (state == ProjectileState.Flying)
             {
-                Impact();
+                // Accelerate the projectile
+                Vector2 currentVelocity = rigidbody2D.linearVelocity;
+                Vector2 newVelocity = Vector2.MoveTowards(currentVelocity,
+                    direction * initialSpeed,
+                    acceleration * Time.fixedDeltaTime);
+
+                rigidbody2D.linearVelocity = newVelocity;
+
+                lifeTimer -= Time.fixedDeltaTime;
+                if (lifeTimer <= 0f)
+                {
+                    Impact();
+                }
+            }
+            else
+            {
+                if (impaledTarget)
+                {
+                    rigidbody2D.position = (Vector2)impaledTarget.position + relativePosition;
+                }
             }
         }
 
@@ -67,16 +89,22 @@ namespace Projectiles
             // Check if the collided object is in the collision mask
             if ((damageMask & (1 << other.gameObject.layer)) != 0)
             {
-                if (impactOccurred)
+                if (state != ProjectileState.Flying)
                 {
                     return;
                 }
 
                 var hurtBox = other.GetComponent<HurtBox>();
-                if (hurtBox != null && hurtBox.enabled)
+                if (hurtBox != null && hurtBox.IsHitboxEnabled)
                 {
                     hurtBox.Hit(new HurtBox.HitData(rigidbody2D.position, direction, knockbackForce));
                     OnDamageTarget?.Invoke();
+
+                    if (stickToTarget)
+                    {
+                        relativePosition = (Vector2)other.transform.position - rigidbody2D.position;
+                        impaledTarget = other.transform;
+                    }
                 }
             }
 
@@ -88,12 +116,12 @@ namespace Projectiles
 
         private void Impact()
         {
-            if (impactOccurred)
+            if (state == ProjectileState.Impacted)
             {
                 return;
             }
 
-            impactOccurred = true;
+            state = ProjectileState.Impacted;
 
             OnImpact?.Invoke();
             if (destroyOnImpact)
@@ -109,7 +137,7 @@ namespace Projectiles
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
             lifeTimer = lifeTime;
-            impactOccurred = false;
+            state = ProjectileState.Flying;
         }
     }
 }
