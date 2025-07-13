@@ -60,7 +60,7 @@ namespace Projectiles
             if ((damageMask & (1 << other.gameObject.layer)) != 0)
             {
                 var hurtBox = other.GetComponent<HurtBox>();
-                if (hurtBox != null)
+                if (hurtBox != null && hurtBox.enabled)
                 {
                     hurtBox.Hit(new HurtBox.HitData(rigidbody2D.position, direction));
                     OnDamageTarget?.Invoke();

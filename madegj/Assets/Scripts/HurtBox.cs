@@ -17,9 +17,19 @@ public class HurtBox : MonoBehaviour
 
     public UnityEvent<HitData> OnHit;
 
+    [SerializeField]
+    private bool isHitboxEnabled = true;
+
+    public bool IsHitboxEnabled => isHitboxEnabled;
+
     public void Hit(HitData hitData)
     {
         // Trigger the OnHit event when the hurtbox is hit
         OnHit?.Invoke(hitData);
+    }
+
+    public void SetHitboxEnabled(bool enabled)
+    {
+        isHitboxEnabled = enabled;
     }
 }
