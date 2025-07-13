@@ -7,11 +7,23 @@ namespace Enemies
 {
     public class EnemyCore : MonoBehaviour
     {
+        private enum EnemyState
+        {
+            Alive,
+            Defeated
+        }
+
         [SerializeField]
         private EnemyMovement enemyMovement;
 
         [SerializeField]
+        private EnemyMovement defeatedMovement;
+
+        [SerializeField]
         private EnemyBulletPattern enemyBulletPattern;
+
+        [SerializeField]
+        private Rigidbody2D rigidbody2D;
 
         [SerializeField]
         private ProtagCore player1;
@@ -22,9 +34,7 @@ namespace Enemies
         public UnityEvent<EnemyCore> OnDefeated;
         public UnityEvent OnRemoveCorpse;
 
-        public bool IsDefeated => defeated;
-
-        private bool defeated;
+        private EnemyState enemyState;
 
         private void Update()
         {
@@ -33,18 +43,27 @@ namespace Enemies
                 return;
             }
 
-            // Update movement
-            enemyMovement.CalculateMovement(player1, player2, Time.deltaTime);
+            if (enemyState == EnemyState.Defeated)
+            {
+                // If defeated, use defeated movement
+                defeatedMovement.CalculateMovement(player1, player2, Time.deltaTime);
+            }
 
-            // Update bullet pattern
-            enemyBulletPattern.UpdateBulletPattern(player1, player2, Time.deltaTime);
+            if (enemyState == EnemyState.Alive)
+            {
+                // Update movement
+                enemyMovement.CalculateMovement(player1, player2, Time.deltaTime);
+
+                // Update bullet pattern
+                enemyBulletPattern.UpdateBulletPattern(player1, player2, Time.deltaTime);
+            }
         }
 
         public void Initialize(ProtagCore player1, ProtagCore player2)
         {
             this.player1 = player1;
             this.player2 = player2;
-            defeated = false;
+            enemyState = EnemyState.Alive;
         }
 
         public void CleanupCorpse()
@@ -53,14 +72,15 @@ namespace Enemies
             Destroy(gameObject, 2f);
         }
 
-        public void Defeat()
+        public void Defeat(HurtBox.HitData hitData)
         {
-            if (defeated)
+            if (enemyState == EnemyState.Defeated)
             {
                 return;
             }
 
-            defeated = true;
+            enemyState = EnemyState.Defeated;
+            rigidbody2D.linearVelocity = hitData.Direction * hitData.knockbackVel;
             OnDefeated?.Invoke(this);
         }
     }

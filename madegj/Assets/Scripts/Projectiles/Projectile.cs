@@ -27,6 +27,9 @@ namespace Projectiles
         [SerializeField]
         private bool destroyOnImpact;
 
+        [SerializeField]
+        private float knockbackForce;
+
         [FormerlySerializedAs("OnCollide")]
         public UnityEvent OnImpact;
 
@@ -64,10 +67,15 @@ namespace Projectiles
             // Check if the collided object is in the collision mask
             if ((damageMask & (1 << other.gameObject.layer)) != 0)
             {
+                if (impactOccurred)
+                {
+                    return;
+                }
+
                 var hurtBox = other.GetComponent<HurtBox>();
                 if (hurtBox != null && hurtBox.enabled)
                 {
-                    hurtBox.Hit(new HurtBox.HitData(rigidbody2D.position, direction));
+                    hurtBox.Hit(new HurtBox.HitData(rigidbody2D.position, direction, knockbackForce));
                     OnDamageTarget?.Invoke();
                 }
             }

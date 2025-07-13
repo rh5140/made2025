@@ -100,6 +100,8 @@ namespace Enemies
                 enemyInstances.Add(enemy);
                 livingEnemies.Add(enemy);
             }
+
+            remainingEnemies = enemyCount;
         }
 
         private void OnEnemyDefeated(EnemyCore defeated)

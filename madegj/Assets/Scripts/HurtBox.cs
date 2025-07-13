@@ -7,11 +7,13 @@ public class HurtBox : MonoBehaviour
     {
         public Vector2 Position;
         public Vector2 Direction;
+        public float knockbackVel;
 
-        public HitData(Vector2 position, Vector2 direction)
+        public HitData(Vector2 position, Vector2 direction, float knockbackVel)
         {
             Position = position;
             Direction = direction;
+            this.knockbackVel = knockbackVel;
         }
     }
 
