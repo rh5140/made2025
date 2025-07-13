@@ -23,7 +23,11 @@ namespace Projectiles
         [SerializeField]
         private float lifeTime;
 
+        [SerializeField]
+        private bool destroyOnImpact;
+
         public UnityEvent OnCollide;
+        public UnityEvent OnDamageTarget;
 
         private Vector2 direction;
         private float lifeTimer;
@@ -46,13 +50,12 @@ namespace Projectiles
             lifeTimer -= Time.fixedDeltaTime;
             if (lifeTimer <= 0f)
             {
-                Destroy(gameObject);
+                Impact();
             }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log(other.gameObject.layer);
             // Check if the collided object is in the collision mask
             if ((damageMask & (1 << other.gameObject.layer)) != 0)
             {
@@ -60,14 +63,21 @@ namespace Projectiles
                 if (hurtBox != null)
                 {
                     hurtBox.Hit(new HurtBox.HitData(rigidbody2D.position, direction));
+                    OnDamageTarget?.Invoke();
                 }
             }
 
             if ((collisionMask & (1 << other.gameObject.layer)) != 0)
             {
-                OnCollide?.Invoke();
-                // Destroy the projectile on collision with objects in the collision mask
-                rigidbody2D.simulated = false;
+                Impact();
+            }
+        }
+
+        private void Impact()
+        {
+            OnCollide?.Invoke();
+            if (destroyOnImpact)
+            {
                 Destroy(gameObject, 2f);
             }
         }

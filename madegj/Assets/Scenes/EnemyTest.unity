@@ -352,7 +352,7 @@ Transform:
   m_GameObject: {fileID: 654299144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.35, y: 1.49, z: 0}
+  m_LocalPosition: {x: 9.71, y: 0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -471,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 1303321623}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.99, y: -3.48, z: 0}
+  m_LocalPosition: {x: 9.3, y: -1.43, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -622,16 +622,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1303321624}
     - target: {fileID: 3977333819036551129, guid: 2f76624a06a306348930579fc371babd, type: 3}
-      propertyPath: pattern.ProjectileCount
+      propertyPath: interval
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3977333819036551129, guid: 2f76624a06a306348930579fc371babd, type: 3}
+      propertyPath: pattern.ProjectilePrefab
+      value: 
+      objectReference: {fileID: 2337346711128423406, guid: 841c33900363549479be66f4d74a6281, type: 3}
     - target: {fileID: 5528130111948833951, guid: 2f76624a06a306348930579fc371babd, type: 3}
       propertyPath: m_Name
       value: BasicEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6950135088380949028, guid: 2f76624a06a306348930579fc371babd, type: 3}
-      propertyPath: speed
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

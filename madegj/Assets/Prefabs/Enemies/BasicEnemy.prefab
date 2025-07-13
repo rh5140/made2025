@@ -47,7 +47,7 @@ MonoBehaviour:
   pattern:
     ProjectilePrefab: {fileID: 2337346711128423406, guid: 841c33900363549479be66f4d74a6281, type: 3}
     ProjectileCount: 3
-    angleSpacing: 20
+    angleSpacing: 15
   interval: 2.5
 --- !u!1 &3595038028802418093
 GameObject:
