@@ -190,7 +190,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onReviveTriggerEnter:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1843779742842668390}
+        m_TargetAssemblyTypeName: ProtagCore, Assembly-CSharp
+        m_MethodName: Revive
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8514053947323529175}
+          m_ObjectArgumentAssemblyTypeName: ProtagRevive, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  protagCore: {fileID: 1843779742842668390}
 --- !u!1 &6063833457589277118
 GameObject:
   m_ObjectHideFlags: 0

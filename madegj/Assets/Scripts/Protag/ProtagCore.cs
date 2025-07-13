@@ -126,7 +126,7 @@ public class ProtagCore : MonoBehaviour
         playerState = PlayerState.DEAD;
     }
 
-    public void Revive()
+    public void Revive(ProtagRevive protagRevive)
     {
         playerState = PlayerState.MOVE;
     }
