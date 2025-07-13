@@ -44,13 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1265b6c37af3f40e0aff767d56648d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:madegj/Assets/Prefabs/Protag/Protag.prefab
   protagCore: {fileID: 1843779742842668390}
   playerRigidBody2D: {fileID: 1693225842999674208}
-=======
-  movementMultiplier: 5
-  playerRigidBody2D: {fileID: 0}
->>>>>>> 8b9178194c66aa53f8360d5f61da6b9b89cc156c:madegj/Assets/Prefabs/Player.prefab
 --- !u!1 &8456100898937429448
 GameObject:
   m_ObjectHideFlags: 0
