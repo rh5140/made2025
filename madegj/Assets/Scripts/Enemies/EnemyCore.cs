@@ -93,11 +93,11 @@ namespace Enemies
                 ? 1000
                 : Vector3.Distance(position, p2.GetPosition());
 
-            ProtagCore targetPlayer = p1;
+            ProtagCore targetPlayer = p2;
             if (distToP1 <
                 distToP2)
             {
-                targetPlayer = p2;
+                targetPlayer = p1;
             }
 
             return targetPlayer;
