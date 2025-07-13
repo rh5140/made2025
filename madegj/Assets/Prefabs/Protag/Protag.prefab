@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6063833457589277118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7247862480692589817}
+  - component: {fileID: 7441533837234635307}
+  m_Layer: 0
+  m_Name: Shoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7247862480692589817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063833457589277118}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4677251464409398161}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7441533837234635307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063833457589277118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4ec4338979cfb28b563b617987670c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  protagCore: {fileID: 1843779742842668390}
+  projectilePrefab: {fileID: 2337346711128423406, guid: c179594ac8b28674486633cb18e40342, type: 3}
 --- !u!1 &8383423500903951803
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2152484072869652560}
+  - {fileID: 7247862480692589817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6405257136902792484
@@ -226,7 +273,7 @@ MonoBehaviour:
   rollCooldown: 4
   rollDuration: 0.25
   rollMovementMultiplier: 10
-  prevDirection: {x: 0, y: 1}
+  direction: {x: 0, y: 1}
   aimKeys: 600000002e000000
   rollKeys: 310000002f000000
   leftKeys: 6100000014010000
@@ -235,5 +282,6 @@ MonoBehaviour:
   downKeys: 7300000012010000
   movementMultiplier: 5
   protagMovement: {fileID: 2964486600232902471}
+  protagShoot: {fileID: 7441533837234635307}
   playerState: 0
   playerRigidBody2d: {fileID: 1693225842999674208}

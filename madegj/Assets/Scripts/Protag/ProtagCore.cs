@@ -12,7 +12,9 @@ public class ProtagCore : MonoBehaviour
     public float rollCooldown = 1.0f;
     public float rollDuration = 2.0f;
     public float rollMovementMultiplier = 5.0f;
-    public Vector2 prevDirection = Vector2.up;
+
+    // Unit vector representing direction player is facing.
+    public Vector2 direction = Vector2.up;
 
     public List<KeyCode> aimKeys = new List<KeyCode> { KeyCode.BackQuote, KeyCode.Period };
     public List<KeyCode> rollKeys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Slash };
@@ -26,7 +28,10 @@ public class ProtagCore : MonoBehaviour
     private bool hasProjectile;
 
     [SerializeField]
-    public ProtagMovement protagMovement;
+    private ProtagMovement protagMovement;
+    [SerializeField]
+    private ProtagShoot protagShoot;
+
     public PlayerState playerState;
     public Rigidbody2D playerRigidBody2d;
 
@@ -61,15 +66,16 @@ public class ProtagCore : MonoBehaviour
 
     private void UpdateState()
     {
+        float curTime = Time.time;
         // Recover from Roll
-        if (playerState == PlayerState.ROLL && (rollPrevTime <= Time.time - rollDuration))
+        if (playerState == PlayerState.ROLL && (rollPrevTime <= curTime - rollDuration))
         {
             playerState = PlayerState.MOVE;
             return;
         }
 
         // Move to Roll
-        if (playerState == PlayerState.MOVE && (rollPrevTime <= Time.time - rollCooldown) && Input.GetKeyDown(rollKeys[playerID - 1]))
+        if (playerState == PlayerState.MOVE && (rollPrevTime <= curTime - rollCooldown) && Input.GetKeyDown(rollKeys[playerID - 1]))
         {
             rollPrevTime = Time.time;
             playerState = PlayerState.ROLL;
@@ -77,7 +83,7 @@ public class ProtagCore : MonoBehaviour
         }
 
         // Move to Aim
-        if (playerState == PlayerState.MOVE && Input.GetKeyDown(aimKeys[playerID - 1]))
+        if (playerState == PlayerState.MOVE && hasProjectile && Input.GetKeyDown(aimKeys[playerID - 1]))
         {
             playerState = PlayerState.AIM;
             return;
@@ -86,7 +92,10 @@ public class ProtagCore : MonoBehaviour
         // Aim to Move
         if (playerState == PlayerState.AIM && Input.GetKeyUp(aimKeys[playerID - 1]))
         {
+            hasProjectile = false;
+            protagShoot.HandleShoot();
             playerState = PlayerState.MOVE;
+            
             return;
         }
     }

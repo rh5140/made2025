@@ -25,14 +25,12 @@ public class ProtagMovement : MonoBehaviour
 
         Vector2 direction = newVelocity.normalized;
         if (direction != Vector2.zero)
-            protagCore.prevDirection = direction;
+            protagCore.direction = direction;
 
         playerRigidBody2D.linearVelocity = direction * protagCore.movementMultiplier;
     }
 
     public void HandleRoll() {
-        Debug.Log("handling roll...");
-        Debug.Log(protagCore.prevDirection);
-        playerRigidBody2D.linearVelocity = protagCore.prevDirection * protagCore.rollMovementMultiplier;
+        playerRigidBody2D.linearVelocity = protagCore.direction * protagCore.rollMovementMultiplier;
     }
 }
