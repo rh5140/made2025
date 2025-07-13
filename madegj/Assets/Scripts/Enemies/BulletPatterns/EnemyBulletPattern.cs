@@ -4,6 +4,6 @@ namespace Enemies.BulletPatterns
 {
     public abstract class EnemyBulletPattern : MonoBehaviour
     {
-        public abstract void UpdateBulletPattern(Transform player1, Transform player2, float deltaTime);
+        public abstract void UpdateBulletPattern(ProtagCore player1, ProtagCore player2, float deltaTime);
     }
 }

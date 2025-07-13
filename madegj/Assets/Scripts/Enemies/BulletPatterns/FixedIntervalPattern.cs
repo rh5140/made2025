@@ -27,7 +27,7 @@ namespace Enemies.BulletPatterns
             timer = interval;
         }
 
-        public override void UpdateBulletPattern(Transform player1, Transform player2, float deltaTime)
+        public override void UpdateBulletPattern(ProtagCore player1, ProtagCore player2, float deltaTime)
         {
             if (timer > 0)
             {
@@ -38,15 +38,15 @@ namespace Enemies.BulletPatterns
             timer = interval;
 
             // closest player
-            Transform targetPlayer = player1;
-            if (Vector3.Distance(transform.position, player2.position) <
-                Vector3.Distance(transform.position, player1.position))
+            ProtagCore targetPlayer = player1;
+            if (Vector3.Distance(transform.position, player2.GetPosition()) <
+                Vector3.Distance(transform.position, player1.GetPosition()))
             {
                 targetPlayer = player2;
             }
 
             // calculate angle to player
-            Vector2 directionToPlayer = (targetPlayer.position - transform.position).normalized;
+            Vector2 directionToPlayer = (targetPlayer.GetPosition() - (Vector2)transform.position).normalized;
             float baseAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
 
             float startAngle = baseAngle - pattern.angleSpacing * (pattern.ProjectileCount - 1) / 2f;

@@ -16,8 +16,9 @@ namespace Projectiles
                 var protag = other.GetComponentInParent<ProtagCore>();
                 if (protag != null)
                 {
+                    Debug.Log("Picked up! " + protag.name);
                     // Call the pickup method on the Protag component
-                    // protag.Pickup();
+                    protag.PickupProjectile();
 
                     // Destroy this pickup object
                     Destroy(gameObject);

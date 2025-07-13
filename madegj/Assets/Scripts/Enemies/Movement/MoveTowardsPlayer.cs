@@ -12,17 +12,17 @@ namespace Enemies.Movement
         [SerializeField]
         private float acceleration;
 
-        public override void UpdateMovement(Transform player1, Transform player2, float timeDelta)
+        public override void UpdateMovement(ProtagCore player1, ProtagCore player2, float timeDelta)
         {
             // find nearest player
-            Transform targetPlayer = player1;
-            if (Vector3.Distance(transform.position, player2.position) <
-                Vector3.Distance(transform.position, player1.position))
+            ProtagCore targetPlayer = player1;
+            if (Vector3.Distance(transform.position, player2.GetPosition()) <
+                Vector3.Distance(transform.position, player1.GetPosition()))
             {
                 targetPlayer = player2;
             }
 
-            Vector3 desiredVelocity = (targetPlayer.position - transform.position).normalized * speed;
+            Vector2 desiredVelocity = (targetPlayer.GetPosition() - (Vector2)transform.position).normalized * speed;
             Vector2 currentVelocity = rigidbody2D.linearVelocity;
 
             Vector2 newVelocity = Vector2.MoveTowards(currentVelocity,
