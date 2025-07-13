@@ -13,6 +13,8 @@ public class ProtagCore : MonoBehaviour
     public float rollDuration = 2.0f;
     public float rollMovementMultiplier = 5.0f;
 
+    public float aimDuration = 1.0f;
+
     // Unit vector representing direction player is facing.
     public Vector2 direction = Vector2.up;
 
@@ -25,6 +27,7 @@ public class ProtagCore : MonoBehaviour
     public float movementMultiplier = 5.0f;
 
     private float rollPrevTime;
+    private float aimPrevTime;
     private bool hasProjectile;
 
     [SerializeField]
@@ -87,13 +90,14 @@ public class ProtagCore : MonoBehaviour
         if (playerState == PlayerState.MOVE && hasProjectile && Input.GetKeyDown(aimKeys[playerID - 1]))
         {
             playerState = PlayerState.AIM;
+            aimDuration = Time.time;
             return;
         }
 
         // Aim to Move
         if (playerState == PlayerState.AIM && Input.GetKeyUp(aimKeys[playerID - 1]))
         {
-            // hasProjectile = false;
+            hasProjectile = false;
             protagShoot.HandleShoot();
             playerState = PlayerState.MOVE;
             
