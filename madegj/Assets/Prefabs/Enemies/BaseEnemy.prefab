@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 2713499247776694372}
   - component: {fileID: 4279904714309783249}
   m_Layer: 0
-  m_Name: Hitbox
+  m_Name: Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,7 +238,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5077162158085163302}
+        m_TargetAssemblyTypeName: Enemies.EnemyCore, Assembly-CSharp
+        m_MethodName: Defeat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2839907869671267782
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +335,12 @@ MonoBehaviour:
   enemyBulletPattern: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
+  OnDefeated:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRemoveCorpse:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &1516112654562206657
 Rigidbody2D:
   serializedVersion: 5

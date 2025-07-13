@@ -30,6 +30,12 @@ namespace Enemies.Movement
                 acceleration * timeDelta);
 
             rigidbody2D.linearVelocity = newVelocity;
+
+            if (newVelocity != Vector2.zero)
+            {
+                float angle = Mathf.Atan2(newVelocity.y, newVelocity.x) * Mathf.Rad2Deg;
+                rigidbody2D.rotation = angle;
+            }
         }
     }
 }
