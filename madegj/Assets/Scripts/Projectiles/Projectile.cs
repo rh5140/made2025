@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Projectiles
 {
@@ -26,7 +27,9 @@ namespace Projectiles
         [SerializeField]
         private bool destroyOnImpact;
 
-        public UnityEvent OnCollide;
+        [FormerlySerializedAs("OnCollide")]
+        public UnityEvent OnImpact;
+
         public UnityEvent OnDamageTarget;
 
         private Vector2 direction;
@@ -84,7 +87,7 @@ namespace Projectiles
 
             impactOccurred = true;
 
-            OnCollide?.Invoke();
+            OnImpact?.Invoke();
             if (destroyOnImpact)
             {
                 Destroy(gameObject, 2f);

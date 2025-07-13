@@ -7,23 +7,31 @@ namespace Projectiles
         [SerializeField]
         private LayerMask pickupMask;
 
+        private bool canPickup;
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // Check if the collided object is in the pickup mask
+            if (!canPickup)
+            {
+                return;
+            }
+
             if ((pickupMask & (1 << other.gameObject.layer)) != 0)
             {
-                // Check if the object has a Protag component
                 var protag = other.GetComponentInParent<ProtagCore>();
                 if (protag != null)
                 {
                     Debug.Log("Picked up! " + protag.name);
-                    // Call the pickup method on the Protag component
                     protag.PickupProjectile();
 
-                    // Destroy this pickup object
                     Destroy(gameObject);
                 }
             }
+        }
+
+        public void SetCanPickup(bool enablePickup)
+        {
+            canPickup = enablePickup;
         }
     }
 }
