@@ -181,8 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 8364703658959383150}
-  speed: 4
-  acceleration: 15
+  speed: 8
+  acceleration: 4
+  trackingWeight: 1
+  avoidanceWeight: 0.6
 --- !u!1 &4800010815481480274
 GameObject:
   m_ObjectHideFlags: 0

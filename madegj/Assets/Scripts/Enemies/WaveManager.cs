@@ -34,17 +34,27 @@ namespace Enemies
         [SerializeField]
         private float outerSpawnRadius;
 
+        [SerializeField]
+        private int initialEnemyCount;
+
+        [SerializeField]
+        private int increasePerWave;
+
+        public static WaveManager Instance { get; private set; }
+
         private int currentWaveNumber;
 
         private float nextWaveTimer;
 
         private List<EnemyCore> enemyInstances = new();
+        private List<EnemyCore> livingEnemies = new();
         private int remainingEnemies;
 
         private WaveState waveState = WaveState.WaitingForNextWave;
 
         private void Awake()
         {
+            Instance = this;
             currentWaveNumber = 1;
             nextWaveTimer = currentWaveNumber;
         }
@@ -75,9 +85,11 @@ namespace Enemies
         private void SpawnWave()
         {
             enemyInstances.Clear();
+            livingEnemies.Clear();
 
+            int enemyCount = initialEnemyCount + (currentWaveNumber - 1) * increasePerWave;
             // Spawn enemies for the current wave
-            for (var i = 0; i < currentWaveNumber; i++)
+            for (var i = 0; i < enemyCount; i++)
             {
                 int randomIndex = Random.Range(0, enemyPool.Count);
                 Vector2 pos = Random.insideUnitCircle.normalized * Random.Range(innerSpawnRadius, outerSpawnRadius);
@@ -86,12 +98,15 @@ namespace Enemies
 
                 enemy.OnDefeated.AddListener(OnEnemyDefeated);
                 enemyInstances.Add(enemy);
+                livingEnemies.Add(enemy);
             }
         }
 
-        private void OnEnemyDefeated()
+        private void OnEnemyDefeated(EnemyCore defeated)
         {
             remainingEnemies--;
+            livingEnemies.Remove(defeated);
+
             if (remainingEnemies <= 0)
             {
                 foreach (EnemyCore enemy in enemyInstances)
@@ -102,6 +117,11 @@ namespace Enemies
                 nextWaveTimer = timeBetweenWaves;
                 waveState = WaveState.WaitingForNextWave;
             }
+        }
+
+        public IReadOnlyList<EnemyCore> GetLivingEnemies()
+        {
+            return livingEnemies;
         }
     }
 }

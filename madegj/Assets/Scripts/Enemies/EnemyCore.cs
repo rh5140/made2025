@@ -19,8 +19,12 @@ namespace Enemies
         [SerializeField]
         private ProtagCore player2;
 
-        public UnityEvent OnDefeated;
+        public UnityEvent<EnemyCore> OnDefeated;
         public UnityEvent OnRemoveCorpse;
+
+        public bool IsDefeated => defeated;
+
+        private bool defeated;
 
         private void Update()
         {
@@ -30,7 +34,7 @@ namespace Enemies
             }
 
             // Update movement
-            enemyMovement.UpdateMovement(player1, player2, Time.deltaTime);
+            enemyMovement.CalculateMovement(player1, player2, Time.deltaTime);
 
             // Update bullet pattern
             enemyBulletPattern.UpdateBulletPattern(player1, player2, Time.deltaTime);
@@ -40,6 +44,7 @@ namespace Enemies
         {
             this.player1 = player1;
             this.player2 = player2;
+            defeated = false;
         }
 
         public void CleanupCorpse()
@@ -50,7 +55,13 @@ namespace Enemies
 
         public void Defeat()
         {
-            OnDefeated?.Invoke();
+            if (defeated)
+            {
+                return;
+            }
+
+            defeated = true;
+            OnDefeated?.Invoke(this);
         }
     }
 }

@@ -186,6 +186,8 @@ MonoBehaviour:
   timeBetweenWaves: 1
   innerSpawnRadius: 15
   outerSpawnRadius: 20
+  initialEnemyCount: 5
+  increasePerWave: 2
 --- !u!4 &206327477
 Transform:
   m_ObjectHideFlags: 0

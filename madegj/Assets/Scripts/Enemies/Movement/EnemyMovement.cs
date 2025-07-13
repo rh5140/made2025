@@ -9,6 +9,6 @@ namespace Enemies.Movement
         [SerializeField]
         protected Rigidbody2D rigidbody2D;
 
-        public abstract void UpdateMovement(ProtagCore player1, ProtagCore player2, float timeDelta);
+        public abstract void CalculateMovement(ProtagCore player1, ProtagCore player2, float timeDelta);
     }
 }
