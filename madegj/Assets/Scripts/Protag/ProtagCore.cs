@@ -39,7 +39,7 @@ public class ProtagCore : MonoBehaviour
     void Start()
     {
         playerState = PlayerState.MOVE;
-        hasProjectile = true;
+        hasProjectile = false;
         rollPrevTime = -1 * rollCooldown; // Allow players to roll immediately?
     }
 
@@ -66,6 +66,7 @@ public class ProtagCore : MonoBehaviour
 
     private void UpdateState()
     {
+        protagMovement.HandleDirection();
         float curTime = Time.time;
         // Recover from Roll
         if (playerState == PlayerState.ROLL && (rollPrevTime <= curTime - rollDuration))
@@ -92,7 +93,7 @@ public class ProtagCore : MonoBehaviour
         // Aim to Move
         if (playerState == PlayerState.AIM && Input.GetKeyUp(aimKeys[playerID - 1]))
         {
-            hasProjectile = false;
+            // hasProjectile = false;
             protagShoot.HandleShoot();
             playerState = PlayerState.MOVE;
             

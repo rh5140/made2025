@@ -1,6 +1,6 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 public class ProtagMovement : MonoBehaviour
 {
@@ -8,8 +8,7 @@ public class ProtagMovement : MonoBehaviour
     public ProtagCore protagCore;
 
     public Rigidbody2D playerRigidBody2D;
-
-    public void HandleMovement()
+    public Vector2 HandleDirection()
     {
         int playerID = protagCore.playerID;
         Vector2 newVelocity = Vector2.zero;
@@ -26,8 +25,12 @@ public class ProtagMovement : MonoBehaviour
         Vector2 direction = newVelocity.normalized;
         if (direction != Vector2.zero)
             protagCore.direction = direction;
+        return direction;
+    }
 
-        playerRigidBody2D.linearVelocity = direction * protagCore.movementMultiplier;
+    public void HandleMovement()
+    {
+        playerRigidBody2D.linearVelocity = HandleDirection() * protagCore.movementMultiplier;
     }
 
     public void HandleRoll() {

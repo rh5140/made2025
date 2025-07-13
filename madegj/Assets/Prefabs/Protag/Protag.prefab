@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7247862480692589817}
   - component: {fileID: 7441533837234635307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2152484072869652560}
   - component: {fileID: 2964486600232902471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 8301373554624580103}
   - component: {fileID: 1693225842999674208}
   - component: {fileID: 1843779742842668390}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Protag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
