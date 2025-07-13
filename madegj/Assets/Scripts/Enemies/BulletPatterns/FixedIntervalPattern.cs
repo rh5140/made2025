@@ -38,12 +38,8 @@ namespace Enemies.BulletPatterns
             timer = interval;
 
             // closest player
-            ProtagCore targetPlayer = player1;
-            if (Vector3.Distance(transform.position, player2.GetPosition()) <
-                Vector3.Distance(transform.position, player1.GetPosition()))
-            {
-                targetPlayer = player2;
-            }
+            ProtagCore targetPlayer = EnemyCore.GetCloserProtag(player1, player2, transform.position);
+
 
             // calculate angle to player
             Vector2 directionToPlayer = (targetPlayer.GetPosition() - (Vector2)transform.position).normalized;

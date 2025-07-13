@@ -83,5 +83,24 @@ namespace Enemies
             rigidbody2D.linearVelocity = hitData.Direction * hitData.knockbackVel;
             OnDefeated?.Invoke(this);
         }
+
+        public static ProtagCore GetCloserProtag(ProtagCore p1, ProtagCore p2, Vector2 position)
+        {
+            float distToP1 = p1.playerState == ProtagCore.PlayerState.DEAD
+                ? 1000
+                : Vector3.Distance(position, p1.GetPosition());
+            float distToP2 = p2.playerState == ProtagCore.PlayerState.DEAD
+                ? 1000
+                : Vector3.Distance(position, p2.GetPosition());
+
+            ProtagCore targetPlayer = p1;
+            if (distToP1 <
+                distToP2)
+            {
+                targetPlayer = p2;
+            }
+
+            return targetPlayer;
+        }
     }
 }

@@ -26,13 +26,7 @@ namespace Enemies.Movement
 
         public override void CalculateMovement(ProtagCore player1, ProtagCore player2, float timeDelta)
         {
-            // find nearest player
-            ProtagCore targetPlayer = player1;
-            if (Vector3.Distance(transform.position, player2.GetPosition()) <
-                Vector3.Distance(transform.position, player1.GetPosition()))
-            {
-                targetPlayer = player2;
-            }
+            ProtagCore targetPlayer = EnemyCore.GetCloserProtag(player1, player2, transform.position);
 
             Vector2 finalDirection = Vector2.zero;
 
