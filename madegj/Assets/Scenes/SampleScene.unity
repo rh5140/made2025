@@ -278,6 +278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b4442c4c5d9b3fdab1141e5e083182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 1
+  rollCooldown: 10
+  rollDuration: 2
   protagMovement: {fileID: 2119880099}
   playerRigidBody2d: {fileID: 364762781}
 --- !u!1 &410087039
@@ -517,7 +520,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3654440148992354405, guid: 6346339c96ea9f223a20ea67b23616f3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
