@@ -3,10 +3,7 @@ using UnityEngine.Events;
 
 public class ProtagRevive : MonoBehaviour
 {
-    public UnityEvent<ProtagRevive> onReviveTriggerEnter;
-
-    [SerializeField]
-    public ProtagCore protagCore;
+    public UnityEvent onReviveTriggerEnter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +19,6 @@ public class ProtagRevive : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        onReviveTriggerEnter?.Invoke(this);
+        onReviveTriggerEnter?.Invoke();
     }
 }
