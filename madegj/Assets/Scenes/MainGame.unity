@@ -330,6 +330,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1693225842999674208, guid: 6346339c96ea9f223a20ea67b23616f3, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4677251464409398161, guid: 6346339c96ea9f223a20ea67b23616f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.053087965
@@ -456,8 +460,8 @@ SpriteRenderer:
   m_SortingLayerID: -1207425081
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: fac3ef1ea3cc27d4981bffe7a9cdff59, type: 3}
-  m_Color: {r: 0.46540874, g: 0.46540874, b: 0.46540874, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b74ece3bb3ec70e4ca86ba3c8648255b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.21960784}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -477,7 +481,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -577,6 +581,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1693225842999674208, guid: 6346339c96ea9f223a20ea67b23616f3, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1843779742842668390, guid: 6346339c96ea9f223a20ea67b23616f3, type: 3}
       propertyPath: playerID
       value: 2

@@ -32,6 +32,8 @@ namespace Projectiles
         private Vector2 direction;
         private float lifeTimer;
 
+        private bool impactOccurred;
+
         private void FixedUpdate()
         {
             if (rigidbody2D == null)
@@ -75,6 +77,13 @@ namespace Projectiles
 
         private void Impact()
         {
+            if (impactOccurred)
+            {
+                return;
+            }
+
+            impactOccurred = true;
+
             OnCollide?.Invoke();
             if (destroyOnImpact)
             {
@@ -89,6 +98,7 @@ namespace Projectiles
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
             lifeTimer = lifeTime;
+            impactOccurred = false;
         }
     }
 }
