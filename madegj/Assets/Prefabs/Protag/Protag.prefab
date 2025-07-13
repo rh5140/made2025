@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1265b6c37af3f40e0aff767d56648d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementMultiplier: 5
+  protagCore: {fileID: 1843779742842668390}
+  playerRigidBody2D: {fileID: 1693225842999674208}
 --- !u!1 &8456100898937429448
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,9 +58,9 @@ GameObject:
   - component: {fileID: 6405257136902792484}
   - component: {fileID: 8301373554624580103}
   - component: {fileID: 1693225842999674208}
-  - component: {fileID: 3654440148992354405}
+  - component: {fileID: 1843779742842668390}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Protag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,7 +210,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3654440148992354405
+--- !u!114 &1843779742842668390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,3 +222,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b4442c4c5d9b3fdab1141e5e083182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 1
+  rollCooldown: 4
+  rollDuration: 0.25
+  leftKeys: 6100000014010000
+  rightKeys: 6400000013010000
+  upKeys: 7700000011010000
+  downKeys: 7300000012010000
+  movementMultiplier: 5
+  protagMovement: {fileID: 2964486600232902471}
+  playerRigidBody2d: {fileID: 1693225842999674208}

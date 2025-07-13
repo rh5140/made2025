@@ -12,6 +12,11 @@ public class ProtagCore : MonoBehaviour
 
     private List<KeyCode> aimKeys = new List<KeyCode> { KeyCode.BackQuote, KeyCode.Period };
     private List<KeyCode> rollKeys = new List<KeyCode> { KeyCode.Alpha1, KeyCode.Slash };
+    public List<KeyCode> leftKeys = new List<KeyCode> { KeyCode.A, KeyCode.LeftArrow };
+    public List<KeyCode> rightKeys = new List<KeyCode> { KeyCode.D, KeyCode.RightArrow };
+    public List<KeyCode> upKeys = new List<KeyCode> { KeyCode.W, KeyCode.UpArrow };
+    public List<KeyCode> downKeys = new List<KeyCode> { KeyCode.S, KeyCode.DownArrow };
+    public float movementMultiplier = 5.0f;
 
 
     private float rollPrevTime;
@@ -89,5 +94,10 @@ public class ProtagCore : MonoBehaviour
     public void PickupProjectile()
     {
         hasProjectile = true;
+    }
+
+    public void Die()
+    {
+        playerState = PlayerState.DEAD;
     }
 }
