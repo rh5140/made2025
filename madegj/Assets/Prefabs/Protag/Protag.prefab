@@ -10119,6 +10119,7 @@ MonoBehaviour:
   rollClip: {fileID: 8300000, guid: 3c38b48f4cda26160892d07924a57241, type: 3}
   dieClip: {fileID: 8300000, guid: 6ea3f813fb0a3a24c91d8670dbad2ae2, type: 3}
   reviveClip: {fileID: 8300000, guid: bef49d609526560478d88d74d0499cdc, type: 3}
+  pickupClip: {fileID: 8300000, guid: bef49d609526560478d88d74d0499cdc, type: 3}
 --- !u!1 &7646728962884586568
 GameObject:
   m_ObjectHideFlags: 0
@@ -15663,6 +15664,21 @@ MonoBehaviour:
       - m_Target: {fileID: 9196245424542647321}
         m_TargetAssemblyTypeName: ProtagAudio, Assembly-CSharp
         m_MethodName: PlayShootAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPlayerPickup:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9196245424542647321}
+        m_TargetAssemblyTypeName: ProtagAudio, Assembly-CSharp
+        m_MethodName: PlayPickupAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
