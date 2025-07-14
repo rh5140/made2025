@@ -544,7 +544,7 @@ MonoBehaviour:
   playerID: 1
   rollCooldown: 1.5
   rollDuration: 0.7
-  rollMovementMultiplier: 20
+  rollMovementMultiplier: 16
   direction: {x: 0, y: 1}
   aimKeys: 600000002e000000
   rollKeys: 310000002f000000
@@ -552,11 +552,13 @@ MonoBehaviour:
   rightKeys: 6400000013010000
   upKeys: 7700000011010000
   downKeys: 7300000012010000
-  movementMultiplier: 10
+  movementMultiplier: 8
   protagMovement: {fileID: 2964486600232902471}
   protagShoot: {fileID: 7441533837234635307}
+  protagAnimator: {fileID: 8749289688846307169}
   playerState: 0
   playerRigidBody2d: {fileID: 1693225842999674208}
+  playerCollider2d: {fileID: 6282953823439592360}
   onRevive:
     m_PersistentCalls:
       m_Calls: []

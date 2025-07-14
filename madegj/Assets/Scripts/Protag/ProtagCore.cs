@@ -32,17 +32,21 @@ public class ProtagCore : MonoBehaviour
     private ProtagMovement protagMovement;
     [SerializeField]
     private ProtagShoot protagShoot;
+    [SerializeField]
+    private Animator protagAnimator;
 
     public PlayerState playerState;
     public Rigidbody2D playerRigidBody2d;
+
+    public Collider2D playerCollider2d;
 
     public UnityEvent onRevive;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerState = PlayerState.MOVE;
         hasProjectile = false;
+        ChangeState(PlayerState.MOVE);
         rollPrevTime = -1 * rollCooldown; // Allow players to roll immediately?
     }
 
@@ -70,12 +74,16 @@ public class ProtagCore : MonoBehaviour
 
     private void UpdateState()
     {
-        protagMovement.HandleDirection();
+        if (playerState != PlayerState.DEAD && playerState != PlayerState.ROLL)
+        {
+            protagMovement.HandleDirection();
+        }
         float curTime = Time.time;
         // Recover from Roll
         if (playerState == PlayerState.ROLL && (rollPrevTime <= curTime - rollDuration))
         {
-            playerState = PlayerState.MOVE;
+            ChangeState(PlayerState.MOVE);
+            playerCollider2d.enabled = true;
             return;
         }
 
@@ -83,14 +91,15 @@ public class ProtagCore : MonoBehaviour
         if (playerState == PlayerState.MOVE && (rollPrevTime <= curTime - rollCooldown) && Input.GetKeyDown(rollKeys[playerID - 1]))
         {
             rollPrevTime = Time.time;
-            playerState = PlayerState.ROLL;
+            ChangeState(PlayerState.ROLL);
+            playerCollider2d.enabled = false;
             return;
         }
 
         // Move to Aim
         if (playerState == PlayerState.MOVE && hasProjectile && Input.GetKeyDown(aimKeys[playerID - 1]))
         {
-            playerState = PlayerState.AIM;
+            ChangeState(PlayerState.AIM);
             return;
         }
 
@@ -99,8 +108,7 @@ public class ProtagCore : MonoBehaviour
         {
             hasProjectile = false;
             protagShoot.HandleShoot();
-            playerState = PlayerState.MOVE;
-
+            ChangeState(PlayerState.MOVE);
             return;
         }
     }
@@ -119,15 +127,33 @@ public class ProtagCore : MonoBehaviour
     public void PickupProjectile()
     {
         hasProjectile = true;
+        ChangeState(PlayerState.MOVE);
     }
 
     public void Die()
     {
-        playerState = PlayerState.DEAD;
+        ChangeState(PlayerState.DEAD);
     }
 
     public void Revive()
     {
-        playerState = PlayerState.MOVE;
+        ChangeState(PlayerState.MOVE);
+    }
+
+    private void ChangeState(PlayerState newState) {
+        playerState = newState;
+        switch (newState)
+        {
+            case PlayerState.MOVE:
+                if (hasProjectile) protagAnimator.Play("MoveLoaded");
+                else protagAnimator.Play("MoveUnloaded");
+                break;
+            case PlayerState.ROLL:
+                protagAnimator.Play("Roll");
+                break;
+            case PlayerState.AIM:
+                protagAnimator.Play("Aiming");
+                break;
+        }
     }
 }
