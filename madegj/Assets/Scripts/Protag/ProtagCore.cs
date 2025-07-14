@@ -53,6 +53,7 @@ public class ProtagCore : MonoBehaviour
     public UnityEvent onPlayerDie;
     public UnityEvent onPlayerAim;
     public UnityEvent onPlayerShoot;
+    public UnityEvent onPlayerPickup;
     private bool hasProjectile;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -145,6 +146,7 @@ public class ProtagCore : MonoBehaviour
         {
             ChangeState(PlayerState.MOVE);
         }
+        onPlayerPickup?.Invoke();
     }
 
     public void Die()
