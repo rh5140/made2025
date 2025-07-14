@@ -5363,7 +5363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
   onPickup:
     m_PersistentCalls:
       m_Calls:
