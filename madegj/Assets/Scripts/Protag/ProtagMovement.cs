@@ -1,4 +1,3 @@
-using System.Numerics;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 
@@ -24,7 +23,11 @@ public class ProtagMovement : MonoBehaviour
 
         Vector2 direction = newVelocity.normalized;
         if (direction != Vector2.zero)
+        {
             protagCore.direction = direction;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            protagCore.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
         return direction;
     }
 
