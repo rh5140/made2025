@@ -4940,7 +4940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 1354305116601794566}
-  initialSpeed: 7
+  initialSpeed: 5.5
   acceleration: 0
   damageMask:
     serializedVersion: 2
@@ -4950,6 +4950,8 @@ MonoBehaviour:
     m_Bits: 576
   lifeTime: 4
   destroyOnImpact: 1
+  knockbackForce: 0
+  stickToTarget: 0
   OnImpact:
     m_PersistentCalls:
       m_Calls:
