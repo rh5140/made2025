@@ -149,12 +149,22 @@ public class ProtagCore : MonoBehaviour
 
     public void Die()
     {
+        if (playerState == PlayerState.DEAD)
+        {
+            return;
+        }
+
         ChangeState(PlayerState.DEAD);
         transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
     }
 
     public void Revive()
     {
+        if (playerState != PlayerState.DEAD)
+        {
+            return;
+        }
+
         ChangeState(PlayerState.MOVE);
         onPlayerRevive?.Invoke();
     }

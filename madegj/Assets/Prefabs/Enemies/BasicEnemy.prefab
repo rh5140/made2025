@@ -5122,7 +5122,7 @@ MonoBehaviour:
   speed: 8
   acceleration: 4
   trackingWeight: 1
-  avoidanceWeight: 0.6
+  avoidanceWeight: 0.8
 --- !u!1 &4871923274957204298
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,6 +5341,10 @@ PrefabInstance:
     - target: {fileID: 571360893210195139, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528447006135515102, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1654178943395632201, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       propertyPath: m_Layer
@@ -5632,6 +5636,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2708484770900795214, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4337376811839980574}
+    - targetCorrespondingSourceObject: {fileID: 2708484770900795214, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7013073069474979454}
   m_SourcePrefab: {fileID: 100100000, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
 --- !u!4 &1051034653927503437 stripped
 Transform:
@@ -5680,6 +5687,43 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3.09, y: 1.2}
   m_Direction: 1
+--- !u!70 &7013073069474979454
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938563443860985569}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.2, y: 3}
+  m_Direction: 0
 --- !u!1 &5077339006314681449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2839907869671267782, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
