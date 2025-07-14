@@ -32,6 +32,7 @@ public class ProtagCore : MonoBehaviour
     private ProtagMovement protagMovement;
     [SerializeField]
     private ProtagShoot protagShoot;
+
     [SerializeField]
     private Animator protagAnimator;
 
@@ -45,6 +46,7 @@ public class ProtagCore : MonoBehaviour
     public UnityEvent onPlayerRoll;
     public UnityEvent onPlayerDie;
     public UnityEvent onPlayerAim;
+    public UnityEvent onPlayerShoot;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -113,6 +115,7 @@ public class ProtagCore : MonoBehaviour
             hasProjectile = false;
             protagShoot.HandleShoot();
             ChangeState(PlayerState.MOVE);
+            onPlayerShoot?.Invoke();
             return;
         }
     }
@@ -138,6 +141,7 @@ public class ProtagCore : MonoBehaviour
     public void Die()
     {
         ChangeState(PlayerState.DEAD);
+        transform.rotation = UnityEngine.Quaternion.AngleAxis(0, UnityEngine.Vector3.forward);
     }
 
     public void Revive()
@@ -160,7 +164,7 @@ public class ProtagCore : MonoBehaviour
                 break;
             case PlayerState.AIM:
                 protagAnimator.Play("Aiming");
-                onPlayerRoll?.Invoke();
+                onPlayerAim?.Invoke();
                 break;
             case PlayerState.DEAD:
                 protagAnimator.Play("Dead");
