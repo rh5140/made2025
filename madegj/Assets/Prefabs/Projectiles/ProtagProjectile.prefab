@@ -5088,7 +5088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 1354305116601794566}
-  initialSpeed: 20
+  initialSpeed: 22
   acceleration: 0
   damageMask:
     serializedVersion: 2
