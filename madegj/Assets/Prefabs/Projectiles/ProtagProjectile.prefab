@@ -4937,7 +4937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenShakeSO: {fileID: 11400000, guid: 16637c54d735ff048bf9b38613b52470, type: 2}
   velocity: {x: 0, y: 1}
-  strength: 0.7
+  strength: 0.55
 --- !u!1 &2839259910823166516
 GameObject:
   m_ObjectHideFlags: 0

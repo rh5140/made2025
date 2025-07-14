@@ -48,8 +48,10 @@ MonoBehaviour:
   protag2: {fileID: 0}
   enemyPool:
   - {fileID: 2840225249234010249, guid: 2f76624a06a306348930579fc371babd, type: 3}
+  waveText: {fileID: 0}
+  highWaveText: {fileID: 0}
   timeBetweenWaves: 1
   innerSpawnRadius: 15
-  outerSpawnRadius: 20
+  outerSpawnRadius: 16
   initialEnemyCount: 1
-  increasePerWave: 2
+  increasePerWave: 1

@@ -5122,7 +5122,7 @@ MonoBehaviour:
   speed: 8
   acceleration: 4
   trackingWeight: 1
-  avoidanceWeight: 0.8
+  avoidanceWeight: 1
 --- !u!1 &4871923274957204298
 GameObject:
   m_ObjectHideFlags: 0
