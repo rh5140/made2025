@@ -1,6 +1,7 @@
 using System;
 using Projectiles;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies.BulletPatterns
 {
@@ -24,7 +25,7 @@ namespace Enemies.BulletPatterns
 
         private void Start()
         {
-            timer = interval;
+            timer = interval * Random.Range(0.5f, 1.5f);
         }
 
         public override void UpdateBulletPattern(ProtagCore player1, ProtagCore player2, float deltaTime)
@@ -39,7 +40,6 @@ namespace Enemies.BulletPatterns
 
             // closest player
             ProtagCore targetPlayer = EnemyCore.GetCloserProtag(player1, player2, transform.position);
-
 
             // calculate angle to player
             Vector2 directionToPlayer = (targetPlayer.GetPosition() - (Vector2)transform.position).normalized;

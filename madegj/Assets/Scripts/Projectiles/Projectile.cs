@@ -84,7 +84,7 @@ namespace Projectiles
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        public void HandleCollisionTriggerEnter(Collider2D other)
         {
             // Check if the collided object is in the collision mask
             if ((damageMask & (1 << other.gameObject.layer)) != 0)
