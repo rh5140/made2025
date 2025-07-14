@@ -79,7 +79,7 @@ namespace Projectiles
             {
                 if (impaledTarget)
                 {
-                    rigidbody2D.position = (Vector2)impaledTarget.position + relativePosition;
+                    rigidbody2D.position = (Vector2)impaledTarget.position - relativePosition;
                 }
             }
         }
