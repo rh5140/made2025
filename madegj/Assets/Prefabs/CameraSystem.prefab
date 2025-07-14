@@ -263,9 +263,9 @@ MonoBehaviour:
   protag1: {fileID: 0}
   protag2: {fileID: 0}
   virtualCamera: {fileID: 7714212547486274557}
-  margin: 4
+  margin: 12
   minOrthographicSize: 5
-  lerpSpeed: 2
+  lerpSpeed: 1
 --- !u!114 &7458213066166739605
 MonoBehaviour:
   m_ObjectHideFlags: 0
