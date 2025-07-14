@@ -1030,8 +1030,8 @@ ParticleSystem:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-      cycleCount: 6
-      repeatInterval: 0.1
+      cycleCount: 5
+      repeatInterval: 0.07
       probability: 1
   SizeModule:
     enabled: 0
@@ -10492,6 +10492,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   protagCore: {fileID: 1843779742842668390}
+  rollVelocityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.009096238
+      value: 1.0069289
+      inSlope: -0.09235394
+      outSlope: -0.09235394
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.11413829
+    - serializedVersion: 3
+      time: 1.0024202
+      value: 0.214625
+      inSlope: -1.5546955
+      outSlope: -1.5546955
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07911199
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   playerRigidBody2D: {fileID: 1693225842999674208}
 --- !u!1 &8456100898937429448
 GameObject:
@@ -10578,7 +10602,7 @@ MonoBehaviour:
   playerID: 1
   rollCooldown: 1.5
   rollDuration: 0.3
-  rollMovementMultiplier: 15
+  rollMovementMultiplier: 20
   direction: {x: 0, y: 1}
   aimKeys: 600000002e000000
   rollKeys: 310000002f000000
@@ -10587,6 +10611,7 @@ MonoBehaviour:
   upKeys: 7700000011010000
   downKeys: 7300000012010000
   movementMultiplier: 7
+  rollPrevTime: 0
   protagMovement: {fileID: 2964486600232902471}
   protagShoot: {fileID: 7441533837234635307}
   protagAnimator: {fileID: 8749289688846307169}
@@ -10629,6 +10654,18 @@ MonoBehaviour:
       - m_Target: {fileID: 9196245424542647321}
         m_TargetAssemblyTypeName: ProtagAudio, Assembly-CSharp
         m_MethodName: PlayRollAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 143871569948263991}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
