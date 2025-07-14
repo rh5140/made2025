@@ -9991,7 +9991,7 @@ MonoBehaviour:
   reviveMask:
     serializedVersion: 2
     m_Bits: 72
-  reviveTime: 1.5
+  reviveTime: 1
   onReviveStart:
     m_PersistentCalls:
       m_Calls:

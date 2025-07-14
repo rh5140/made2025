@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,8 @@ namespace Enemies
             InWave
         }
 
+        private const string HighWaveKey = "WaveHighScore";
+
         [Header("Depends")]
 
         [SerializeField]
@@ -22,6 +25,12 @@ namespace Enemies
 
         [SerializeField]
         private List<EnemyCore> enemyPool;
+
+        [SerializeField]
+        private TMP_Text waveText;
+
+        [SerializeField]
+        private TMP_Text highWaveText;
 
         [Header("Config")]
 
@@ -102,6 +111,18 @@ namespace Enemies
             }
 
             remainingEnemies = enemyCount;
+
+            waveText.text = $"{currentWaveNumber}";
+
+            int highWave = PlayerPrefs.GetInt(HighWaveKey, 0);
+
+            if (currentWaveNumber > highWave)
+            {
+                PlayerPrefs.SetInt(HighWaveKey, currentWaveNumber);
+                highWave = currentWaveNumber;
+            }
+
+            highWaveText.text = $"{highWave}";
         }
 
         private void OnEnemyDefeated(EnemyCore defeated)
