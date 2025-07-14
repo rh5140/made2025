@@ -41,6 +41,10 @@ public class ProtagCore : MonoBehaviour
     public Collider2D playerCollider2d;
 
     public UnityEvent onRevive;
+    public UnityEvent onPlayerMoveAnimation;
+    public UnityEvent onPlayerRollAnimation;
+    public UnityEvent onPlayerDieAnimation;
+    public UnityEvent onPlayerAimAnimation;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -147,12 +151,15 @@ public class ProtagCore : MonoBehaviour
             case PlayerState.MOVE:
                 if (hasProjectile) protagAnimator.Play("MoveLoaded");
                 else protagAnimator.Play("MoveUnloaded");
+                onPlayerMoveAnimation?.Invoke();
                 break;
             case PlayerState.ROLL:
                 protagAnimator.Play("Roll");
+                onPlayerRollAnimation?.Invoke();
                 break;
             case PlayerState.AIM:
                 protagAnimator.Play("Aiming");
+                onPlayerRollAnimation?.Invoke();
                 break;
         }
     }
