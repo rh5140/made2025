@@ -71,12 +71,6 @@ public class ProtagCore : MonoBehaviour
         HandleState();
     }
 
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(0, 0, 50, 50), playerState.ToString());
-        GUI.Label(new Rect(0, 50, 50, 50), rollCooldown - (Time.time - rollPrevTime) + " cooldown");
-    }
-
     private void HandleState()
     {
         if (playerState == PlayerState.MOVE)
