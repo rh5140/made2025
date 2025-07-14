@@ -10618,7 +10618,7 @@ MonoBehaviour:
   playerState: 0
   playerRigidBody2d: {fileID: 1693225842999674208}
   playerCollider2d: {fileID: 6282953823439592360}
-  onRevive:
+  onPlayerRevive:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9196245424542647321}
