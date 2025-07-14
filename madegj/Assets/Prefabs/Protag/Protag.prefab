@@ -359,7 +359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648773801659746169}
   - component: {fileID: 7822950546459843596}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PhysicsCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

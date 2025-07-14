@@ -67,7 +67,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.21
+  m_Radius: 0.5
 --- !u!1 &1654178943395632201
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +251,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isHitboxEnabled: 1
 --- !u!1 &2839907869671267782
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMovement: {fileID: 0}
+  defeatedMovement: {fileID: 0}
   enemyBulletPattern: {fileID: 0}
+  rigidbody2D: {fileID: 0}
   player1: {fileID: 0}
   player2: {fileID: 0}
   OnDefeated:
