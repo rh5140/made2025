@@ -13,6 +13,8 @@ public class ProtagAudio : MonoBehaviour
     private AudioClip rollClip;
     [SerializeField]
     private AudioClip dieClip;
+    [SerializeField]
+    private AudioClip reviveClip;
     public void PlayShootAudio()
     {
         audioSource.PlayOneShot(shootClip);
@@ -28,5 +30,9 @@ public class ProtagAudio : MonoBehaviour
     public void PlayDieAudio()
     {
         audioSource.PlayOneShot(dieClip);
+    }
+    public void PlayReviveAudio()
+    {
+        audioSource.PlayOneShot(reviveClip);
     }
 }

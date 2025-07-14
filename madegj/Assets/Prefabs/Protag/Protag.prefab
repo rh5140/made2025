@@ -10071,6 +10071,7 @@ MonoBehaviour:
   aimClip: {fileID: 8300000, guid: 1c518ebdca602717497e33c247f252cc, type: 3}
   rollClip: {fileID: 8300000, guid: 3c38b48f4cda26160892d07924a57241, type: 3}
   dieClip: {fileID: 0}
+  reviveClip: {fileID: 8300000, guid: 7e6c3c02fa67a82fa83f49130c745560, type: 3}
 --- !u!1 &7646728962884586568
 GameObject:
   m_ObjectHideFlags: 0
@@ -10291,8 +10292,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 11692a7e22666331b948a248ad9f3b1e, type: 3}
-  m_Resource: {fileID: 8300000, guid: 11692a7e22666331b948a248ad9f3b1e, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -10594,7 +10595,19 @@ MonoBehaviour:
   playerCollider2d: {fileID: 6282953823439592360}
   onRevive:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9196245424542647321}
+        m_TargetAssemblyTypeName: ProtagAudio, Assembly-CSharp
+        m_MethodName: PlayReviveAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPlayerMove:
     m_PersistentCalls:
       m_Calls:
@@ -10613,9 +10626,9 @@ MonoBehaviour:
   onPlayerRoll:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 143871569948263991}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 9196245424542647321}
+        m_TargetAssemblyTypeName: ProtagAudio, Assembly-CSharp
+        m_MethodName: PlayRollAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10627,7 +10640,19 @@ MonoBehaviour:
         m_CallState: 2
   onPlayerDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9196245424542647321}
+        m_TargetAssemblyTypeName: ProtagAudio, Assembly-CSharp
+        m_MethodName: PlayDieAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onPlayerAim:
     m_PersistentCalls:
       m_Calls:
@@ -10657,4 +10682,16 @@ MonoBehaviour:
         m_CallState: 2
   onPlayerShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9196245424542647321}
+        m_TargetAssemblyTypeName: ProtagAudio, Assembly-CSharp
+        m_MethodName: PlayShootAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
