@@ -313,8 +313,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1199172411
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1266779009, guid: 47d124e7c422fac4c93269fa98c8ffe8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -560,5 +560,17 @@ MonoBehaviour:
   playerRigidBody2d: {fileID: 1693225842999674208}
   playerCollider2d: {fileID: 6282953823439592360}
   onRevive:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerMoveAnimation:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerRollAnimation:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerDieAnimation:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerAimAnimation:
     m_PersistentCalls:
       m_Calls: []
