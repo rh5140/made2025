@@ -5457,7 +5457,7 @@ PrefabInstance:
     - target: {fileID: 5077162158085163302, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 4337376811839980574}
+      objectReference: {fileID: 4938563443860985569}
     - target: {fileID: 5077162158085163302, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -5492,7 +5492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077162158085163302, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: set_enabled
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 5077162158085163302, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
@@ -5508,7 +5508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5077162158085163302, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UnityEngine.Behaviour, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5077162158085163302, guid: e7c70e67bd084c445b9e390774deaed5, type: 3}
       propertyPath: OnDefeated.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
@@ -5721,8 +5721,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.2, y: 3}
+  m_Offset: {x: -0.46, y: 0}
+  m_Size: {x: 1.2, y: 2.52}
   m_Direction: 0
 --- !u!1 &5077339006314681449 stripped
 GameObject:
