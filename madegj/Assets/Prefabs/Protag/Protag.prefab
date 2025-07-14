@@ -10118,7 +10118,7 @@ MonoBehaviour:
   aimClip: {fileID: 8300000, guid: 1c518ebdca602717497e33c247f252cc, type: 3}
   rollClip: {fileID: 8300000, guid: 3c38b48f4cda26160892d07924a57241, type: 3}
   dieClip: {fileID: 8300000, guid: 6ea3f813fb0a3a24c91d8670dbad2ae2, type: 3}
-  reviveClip: {fileID: 8300000, guid: bef49d609526560478d88d74d0499cdc, type: 3}
+  reviveClip: {fileID: 8300000, guid: 2e9bd694adc5c5444b849cb5768c08c3, type: 3}
   pickupClip: {fileID: 8300000, guid: bef49d609526560478d88d74d0499cdc, type: 3}
 --- !u!1 &7646728962884586568
 GameObject:
