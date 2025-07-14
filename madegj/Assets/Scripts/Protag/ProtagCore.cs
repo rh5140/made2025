@@ -25,7 +25,7 @@ public class ProtagCore : MonoBehaviour
     public List<KeyCode> downKeys = new List<KeyCode> { KeyCode.S, KeyCode.DownArrow };
     public float movementMultiplier = 5.0f;
 
-    private float rollPrevTime;
+    public float rollPrevTime;
     private bool hasProjectile;
 
     [SerializeField]
