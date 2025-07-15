@@ -1,5 +1,5 @@
-# made2025
+# Last Arrow
 
-Game created at Made @ The Made Summer 2025!
+Local co-op game created at [Made @ The MADE Summer 2025](https://itch.io/jam/made-the-made-summer-2025-)!
 
-Play at: https://raddishradish.itch.io/last-arrow
+Play here: https://raddishradish.itch.io/last-arrow
