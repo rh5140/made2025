@@ -1,10 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class EndScreenConroller : MonoBehaviour
 {
-
     [SerializeField]
     private ProtagCore protag1;
 
@@ -17,7 +15,7 @@ public class EndScreenConroller : MonoBehaviour
     private string sceneName = "MainGame";
     private bool gameEnded;
 
-    void Start()
+    private void Start()
     {
         endScreenImage.SetActive(false);
         gameEnded = false;
@@ -30,18 +28,22 @@ public class EndScreenConroller : MonoBehaviour
         {
             Application.Quit();
         }
-        if (gameEnded && Input.anyKeyDown)
+
+        bool continuePressed = Input.GetKeyDown(KeyCode.BackQuote) || Input.GetKeyDown(KeyCode.Period);
+        if (gameEnded && continuePressed)
         {
             ResetGame();
         }
-        if (protag1.playerState == ProtagCore.PlayerState.DEAD && protag2.playerState == ProtagCore.PlayerState.DEAD && !gameEnded)
+
+        if (protag1.playerState == ProtagCore.PlayerState.DEAD && protag2.playerState == ProtagCore.PlayerState.DEAD &&
+            !gameEnded)
         {
             endScreenImage.SetActive(true);
             gameEnded = true;
         }
     }
 
-    void ResetGame()
+    private void ResetGame()
     {
         SceneManager.LoadScene(sceneName);
     }
