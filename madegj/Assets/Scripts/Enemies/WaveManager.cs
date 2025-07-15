@@ -61,11 +61,16 @@ namespace Enemies
 
         private WaveState waveState = WaveState.WaitingForNextWave;
 
+        private int highWave;
+
         private void Awake()
         {
             Instance = this;
             currentWaveNumber = 1;
             nextWaveTimer = currentWaveNumber;
+            waveText.text = $"{currentWaveNumber}";
+            highWave = PlayerPrefs.GetInt(HighWaveKey, 0);
+            highWaveText.text = $"{highWave}";
         }
 
         private void Update()
@@ -114,7 +119,7 @@ namespace Enemies
 
             waveText.text = $"{currentWaveNumber}";
 
-            int highWave = PlayerPrefs.GetInt(HighWaveKey, 0);
+            highWave = PlayerPrefs.GetInt(HighWaveKey, 0);
 
             if (currentWaveNumber > highWave)
             {
